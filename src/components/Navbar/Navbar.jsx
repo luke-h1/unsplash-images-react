@@ -71,4 +71,13 @@ const Navbar = ({ title, iconStyles, navLinkStyles }) => {
   );
 };
 
-Navbar.defaultProps = {}
+Navbar.defaultProps = {
+  title: 'Image App',
+  iconStyles: 'navbar-icon',
+  navLinkStyles: 'nav-links',
+};
+
+Navbar.propTypes = {
+  title: PropTypes.string.isRequired,
+};
+export default Navbar;
