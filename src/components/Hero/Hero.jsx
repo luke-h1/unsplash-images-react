@@ -6,7 +6,6 @@ const Hero = () => {
     <>
       <div className="hero-wrapper">
           <img src={Image1} alt="" className="image" />
-
       </div>
     </>
   );
