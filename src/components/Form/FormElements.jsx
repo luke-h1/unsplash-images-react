@@ -1,17 +1,19 @@
+import styled from 'styled-components';
 
-.image {
+export const image = styled.image`
   min-width: 270px;
   min-height: 350px;
   max-width: 270px;
   max-height: 350px;
-}
+
+`;
 
 
-.image-wrapper { 
-  display: grid;
+export const imageWrapper = styled.div`
+display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
   img { 
     padding: 1rem;
   }
-}
+`; 

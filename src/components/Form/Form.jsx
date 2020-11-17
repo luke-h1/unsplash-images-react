@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './Form.scss';
+import {image, imageWrapper} from './FormElements';
+
 import axios from 'axios';
 import PropTypes from 'prop-types';
 const Form = ({ title }) => {
@@ -44,9 +45,9 @@ const Form = ({ title }) => {
         {/* length is > 0 return clear images button else don't */}
         {/* image component */}
 
-        <div className="image-wrapper">
-          <img src="" alt="" className="image" />
-        </div>
+        <imageWrapper>
+          <image src='' alt=''/>
+        </imageWrapper>
       </div>
     </>
   );
