@@ -32,7 +32,7 @@ const Form = ({ title }) => {
     // set loading true
     const API_URL = `https://api.unsplash.com/search/users?page=1&query=${text}&client_id=${process.env.REACT_APP_CLIENT_ID}`;
     const res = await axios.get(API_URL);
-    console.log(res.data.results[2].photos[1].urls.raw);
+    console.log(res.data)
   };
 
   return (
