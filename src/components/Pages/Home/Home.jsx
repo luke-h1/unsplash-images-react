@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Form from '../../Form/Form';
 import Navbar from '../../Navbar/Navbar';
-import Hero from '../../Hero/Hero';
+import SideBar from '../../SideBar/SideBar';
 
-const Home = () => { 
-  return ( 
+const Home = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
     <>
-    <Navbar /> 
-    <Hero /> 
+      <Navbar toggle={toggle} />
+      <SideBar isOpen={isOpen} toggle={toggle} />
+      <Form />
     </>
-  )
-}
+  );
+};
 export default Home;

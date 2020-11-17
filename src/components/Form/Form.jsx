@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {image, imageWrapper} from './FormElements';
+import { image, imageWrapper } from './FormElements';
 
 import axios from 'axios';
 import PropTypes from 'prop-types';
@@ -20,11 +20,12 @@ const Form = ({ title }) => {
       setText('');
     }
   };
+
   const searchImages = async (text) => {
-    // set loading true 
-    const API_URL = `https://api.unsplash.com/search/users?page=1&query=${text}&client_id=${process.env.REACT_APP_CLIENT_ID}`; 
+    // set loading true
+    const API_URL = `https://api.unsplash.com/search/users?page=1&query=${text}&client_id=${process.env.REACT_APP_CLIENT_ID}`;
     const res = await axios.get(API_URL);
-    console.log(res.data)
+    console.log(res.data);
   };
 
   return (
@@ -46,20 +47,19 @@ const Form = ({ title }) => {
         {/* image component */}
 
         <imageWrapper>
-          <image src='' alt=''/>
+          <image src="" alt="" />
         </imageWrapper>
       </div>
     </>
   );
 };
 
-Form.defaultProps = { 
-  title: 'Images'
-}
+Form.defaultProps = {
+  title: 'Images',
+};
 
-Form.propTypes = { 
+Form.propTypes = {
   title: PropTypes.string.isRequired,
-}
-
+};
 
 export default Form;
