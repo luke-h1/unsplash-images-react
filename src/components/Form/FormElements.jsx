@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-export const Image = styled.image`
+export const Image = styled.img`
   min-width: 270px;
   min-height: 350px;
   max-width: 270px;

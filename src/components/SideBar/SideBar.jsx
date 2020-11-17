@@ -20,7 +20,7 @@ const SideBar = ({ isOpen, toggle }) => {
         <SideBarLink to="/random">Random</SideBarLink>
       </SideBarMenu>
       <SideBtnWrap>
-        <SideBarRoute to="/">lorem</SideBarRoute>
+        <SideBarRoute to="/">blank button</SideBarRoute>
       </SideBtnWrap>
     </SideBarContainer>
   );

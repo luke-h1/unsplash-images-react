@@ -20,8 +20,7 @@ const Form = ({ title }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (text === '' || text === null) {
-      // show error here
-      return;
+      console.log('show the error here');
     } else {
       searchImages(text);
       setText('');
@@ -29,10 +28,11 @@ const Form = ({ title }) => {
   };
 
   const searchImages = async (text) => {
+    setLoading(true);
     // set loading true
     const API_URL = `https://api.unsplash.com/search/users?page=1&query=${text}&client_id=${process.env.REACT_APP_CLIENT_ID}`;
     const res = await axios.get(API_URL);
-    console.log(res.data);
+    console.log(res.data.results[2].photos[1].urls.raw);
   };
 
   return (
@@ -50,8 +50,10 @@ const Form = ({ title }) => {
           />
           <SearchButton type="submit" value="submit" className="btm" />
         </form>
+        {result ? result : null}
         {/* length is > 0 return clear images button else don't */}
         {/* image Scomponent */}
+        {loading === 'true' ? <h1>Loading</h1> : null}
 
         <ImageWrapper>
           <Image src="" alt="" />
