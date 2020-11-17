@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import { image, imageWrapper } from './FormElements';
+import {
+  FormWrapper,
+  Image,
+  ImageWrapper,
+  FormTitle,
+  SearchBox,
+  SearchButton,
+} from './FormElements';
 
 import axios from 'axios';
 import PropTypes from 'prop-types';
@@ -30,10 +37,10 @@ const Form = ({ title }) => {
 
   return (
     <>
-      <div className="form-wrapper">
-        <div className="form-title">{title}</div>
-        <form className="form" onSubmit={onSubmit}>
-          <input
+      <FormWrapper>
+        <FormTitle>{title}</FormTitle>
+        <form onSubmit={onSubmit}>
+          <SearchBox
             type="text"
             name="text"
             placeholder="search images"
@@ -41,15 +48,15 @@ const Form = ({ title }) => {
             onChange={onChange}
             className="form-input"
           />
-          <input type="submit" value="submit" className="btm" />
+          <SearchButton type="submit" value="submit" className="btm" />
         </form>
         {/* length is > 0 return clear images button else don't */}
-        {/* image component */}
+        {/* image Scomponent */}
 
-        <imageWrapper>
-          <image src="" alt="" />
-        </imageWrapper>
-      </div>
+        <ImageWrapper>
+          <Image src="" alt="" />
+        </ImageWrapper>
+      </FormWrapper>
     </>
   );
 };
