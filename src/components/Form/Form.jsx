@@ -26,7 +26,9 @@ const Form = ({ title }) => {
       .photos(text)
       .then(toJson)
       .then((json) => {
-        console.log(json);
+        console.log(json.results);
+        const data = json.results.map((item) => <Image src={item.urls.full} alt='I work'/>);
+        setResult(data);
       });
   };
 
@@ -65,13 +67,10 @@ const Form = ({ title }) => {
           />
           <SearchButton type="submit" value="submit" className="btm" />
         </form>
-        {result ? result : null}
         {/* length is > 0 return clear images button else don't */}
-        {/* image Scomponent */}
         {loading === 'true' ? <h1>Loading</h1> : null}
-
         <ImageWrapper>
-          <Image src="" alt="" />
+          {result}
         </ImageWrapper>
       </FormWrapper>
     </>
