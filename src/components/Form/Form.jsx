@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import PropTypes from 'prop-types';
 import Unsplash, { toJson } from 'unsplash-js';
-
+import Loading from '../Loading/Loading';
 import {
   FormWrapper,
   Image,
@@ -30,7 +29,7 @@ const Form = ({ title }) => {
       .then((json) => {
         console.log(json.results);
         const data = json.results.map((item) => (
-          <Image src={item.urls.regular} alt="I work" />
+          <Image src={item.urls.regular} alt={item.description} key={item.id} />
         ));
         setResult(data);
         setLoading(false);
@@ -70,6 +69,7 @@ const Form = ({ title }) => {
           />
           <SearchButton type="submit" value="submit" className="btm" />
         </form>
+        {loading ? <Loading /> : null}
         {result.length > 0 && (
           <ClearButton onClick={clearResults}>Clear Results</ClearButton>
         )}
