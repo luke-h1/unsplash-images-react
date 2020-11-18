@@ -13,6 +13,16 @@ export const ImageWrapper = styled.div`
   img {
     padding: 0.5rem;
   }
+  @media (max-width: 1150px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 884px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 export const FormWrapper = styled.div`
@@ -54,4 +64,21 @@ export const SearchButton = styled.input`
   color: #333;
   text-decoration: none;
   cursor: pointer;
+`;
+
+export const ClearButton = styled.button`
+  margin-top: 1rem;
+  min-width: 100px;
+  padding: 5px 20px;
+  border-radius: 6px;
+  border: none;
+  background: #141414;
+  color: #fff;
+  cursor: pointer;
+  font-size: 24px;
+  &:hover {
+    background-color: #38aecc;
+    color: #fff;
+    cursor: pointer;
+  }
 `;

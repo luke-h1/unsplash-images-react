@@ -10,6 +10,7 @@ import {
   FormTitle,
   SearchBox,
   SearchButton,
+  ClearButton,
 } from './FormElements';
 
 const unsplash = new Unsplash({
@@ -22,13 +23,17 @@ const Form = ({ title }) => {
   const [loading, setLoading] = useState(false);
 
   const searchPhotos = async () => {
+    setLoading(true);
     unsplash.search
       .photos(text)
       .then(toJson)
       .then((json) => {
         console.log(json.results);
-        const data = json.results.map((item) => <Image src={item.urls.full} alt='I work'/>);
+        const data = json.results.map((item) => (
+          <Image src={item.urls.regular} alt="I work" />
+        ));
         setResult(data);
+        setLoading(false);
       });
   };
 
@@ -44,13 +49,11 @@ const Form = ({ title }) => {
     }
   };
 
-  // const searchImages = async (text) => {
-  //   setLoading(true);
-  //   // set loading true
-  //   const API_URL = `https://api.unsplash.com/search/users?page=1&query=${text}&client_id=${process.env.REACT_APP_CLIENT_ID}`;
-  //   const res = await axios.get(API_URL);
-  //   console.log(res.data)
-  // };
+  const clearResults = () => {
+    setText('');
+    setResult('');
+    setLoading(false);
+  };
 
   return (
     <>
@@ -67,11 +70,11 @@ const Form = ({ title }) => {
           />
           <SearchButton type="submit" value="submit" className="btm" />
         </form>
+        {result.length > 0 && (
+          <ClearButton onClick={clearResults}>Clear Results</ClearButton>
+        )}
         {/* length is > 0 return clear images button else don't */}
-        {loading === 'true' ? <h1>Loading</h1> : null}
-        <ImageWrapper>
-          {result}
-        </ImageWrapper>
+        <ImageWrapper>{result}</ImageWrapper>
       </FormWrapper>
     </>
   );
