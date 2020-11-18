@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import PropTypes from 'prop-types';
+import Unsplash, { toJson } from 'unsplash-js';
+
 import {
   FormWrapper,
   Image,
@@ -8,12 +12,23 @@ import {
   SearchButton,
 } from './FormElements';
 
-import axios from 'axios';
-import PropTypes from 'prop-types';
+const unsplash = new Unsplash({
+  accessKey: process.env.REACT_APP_CLIENT_ID,
+});
+
 const Form = ({ title }) => {
   const [result, setResult] = useState('');
   const [text, setText] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const searchPhotos = async () => {
+    unsplash.search
+      .photos(text)
+      .then(toJson)
+      .then((json) => {
+        console.log(json);
+      });
+  };
 
   const onChange = (e) => setText(e.target.value);
 
@@ -22,18 +37,18 @@ const Form = ({ title }) => {
     if (text === '' || text === null) {
       console.log('show the error here');
     } else {
-      searchImages(text);
+      searchPhotos(text);
       setText('');
     }
   };
 
-  const searchImages = async (text) => {
-    setLoading(true);
-    // set loading true
-    const API_URL = `https://api.unsplash.com/search/users?page=1&query=${text}&client_id=${process.env.REACT_APP_CLIENT_ID}`;
-    const res = await axios.get(API_URL);
-    console.log(res.data)
-  };
+  // const searchImages = async (text) => {
+  //   setLoading(true);
+  //   // set loading true
+  //   const API_URL = `https://api.unsplash.com/search/users?page=1&query=${text}&client_id=${process.env.REACT_APP_CLIENT_ID}`;
+  //   const res = await axios.get(API_URL);
+  //   console.log(res.data)
+  // };
 
   return (
     <>
