@@ -27,7 +27,6 @@ const Form = ({ title }) => {
       .photos(text)
       .then(toJson)
       .then((json) => {
-        console.log(json.results);
         const data = json.results.map((item) => (
           <Image src={item.urls.regular} alt={item.description} key={item.id} />
         ));
@@ -41,7 +40,7 @@ const Form = ({ title }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (text === '' || text === null) {
-      console.log('show the error here');
+      return;
     } else {
       searchPhotos(text);
       setText('');
@@ -73,7 +72,6 @@ const Form = ({ title }) => {
         {result.length > 0 && (
           <ClearButton onClick={clearResults}>Clear Results</ClearButton>
         )}
-        {/* length is > 0 return clear images button else don't */}
         <ImageWrapper>{result}</ImageWrapper>
       </FormWrapper>
     </>

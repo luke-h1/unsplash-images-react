@@ -22,7 +22,6 @@ const Random = () => {
       .getRandomPhoto()
       .then(toJson)
       .then((json) => {
-        console.log(json);
         const data = (
           <a href={json.links.html} target="_blank" rel="noreferrer">
             <Image
@@ -39,7 +38,6 @@ const Random = () => {
   };
 
   useEffect(() => {
-    console.log('hello');
     searchImages();
     // eslint-disable-next-line
   }, []);
