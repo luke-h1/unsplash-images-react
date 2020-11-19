@@ -6,7 +6,6 @@ import {
   RandomBtn,
 } from './RandomElements';
 import Unsplash, { toJson } from 'unsplash-js';
-import PropTypes from 'prop-types';
 import Loading from '../Loading/Loading';
 
 const unsplash = new Unsplash({
