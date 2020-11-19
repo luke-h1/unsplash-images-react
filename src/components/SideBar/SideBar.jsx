@@ -19,9 +19,9 @@ const SideBar = ({ isOpen, toggle }) => {
         <SideBarLink to="/about">About</SideBarLink>
         <SideBarLink to="/random">Random</SideBarLink>
       </SideBarMenu>
-      <SideBtnWrap>
+      {/* <SideBtnWrap>
         <SideBarRoute to="/">blank button</SideBarRoute>
-      </SideBtnWrap>
+      </SideBtnWrap> */}
     </SideBarContainer>
   );
 };

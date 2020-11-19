@@ -6,6 +6,7 @@ import Navbar from './components/Navbar/Navbar';
 import SideBar from './components/SideBar/SideBar';
 
 import './App.css';
+import Random from './components/Random/Random';
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => {
@@ -20,6 +21,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/about" exact component={About} />
+          <Route path="/random" exact component={Random} />
         </Switch>
       </>
     </BrowserRouter>

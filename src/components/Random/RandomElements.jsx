@@ -7,7 +7,7 @@ export const RandomWrapper = styled.div`
   margin: 0;
   justify-content: center;
   align-items: center;
-`
+`;
 
 export const Image = styled.img`
   min-width: 270px;
@@ -17,20 +17,28 @@ export const Image = styled.img`
 `;
 
 export const ImageWrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   img {
-    padding: 0.5rem;
+    margin-top: 2rem;
   }
-  @media (max-width: 1150px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  @media (max-width: 884px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
+`;
 
-  @media (max-width: 640px) {
-    grid-template-columns: repeat(1, 1fr);
+export const RandomBtn = styled.button`
+  margin-top: 1rem;
+  min-width: 100px;
+  padding: 5px 20px;
+  border-radius: 6px;
+  border: none;
+  background: #141414;
+  color: #fff;
+  cursor: pointer;
+  font-size: 24px;
+  &:hover {
+    background-color: #38aecc;
+    color: #fff;
+    cursor: pointer;
   }
-`
+`;

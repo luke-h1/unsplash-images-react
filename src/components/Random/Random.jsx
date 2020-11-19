@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { RandomWrapper, ImageWrapper } from './RandomElements';
+import {
+  RandomWrapper,
+  ImageWrapper,
+  Image,
+  RandomBtn,
+} from './RandomElements';
 import Unsplash, { toJson } from 'unsplash-js';
 import PropTypes from 'prop-types';
 import Loading from '../Loading/Loading';
@@ -15,16 +20,22 @@ const Random = () => {
   const searchImages = async () => {
     setLoading(true);
     unsplash.photos
-      .getRandomPhoto({ featured: true })
+      .getRandomPhoto()
       .then(toJson)
       .then((json) => {
         console.log(json);
+        const data = (
+          <Image src={json.urls.regular} alt={json.description} key={json.id} />
+        );
+
+        setImage(data);
+        setImage(data);
       });
     setLoading(false);
   };
 
   useEffect(() => {
-    console.log('hello')
+    console.log('hello');
     searchImages();
     // eslint-disable-next-line
   }, []);
@@ -32,7 +43,10 @@ const Random = () => {
   return (
     <>
       <RandomWrapper>
-        <ImageWrapper>{/* {result goes here } */}</ImageWrapper>
+        <ImageWrapper>{image}</ImageWrapper>
+        {image.length !== null && (
+          <RandomBtn onClick={searchImages}>Get Random Image</RandomBtn>
+        )}
       </RandomWrapper>
     </>
   );
