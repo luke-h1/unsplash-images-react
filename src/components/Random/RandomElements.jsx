@@ -32,7 +32,7 @@ export const RandomBtn = styled.button`
   padding: 5px 20px;
   border-radius: 6px;
   border: none;
-  background: #141414;
+  background: #333;
   color: #fff;
   cursor: pointer;
   font-size: 24px;

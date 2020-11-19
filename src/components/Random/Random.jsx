@@ -24,7 +24,13 @@ const Random = () => {
       .then((json) => {
         console.log(json);
         const data = (
-          <Image src={json.urls.regular} alt={json.description} key={json.id} />
+          <a href={json.links.html} target="_blank" rel="noreferrer">
+            <Image
+              src={json.urls.regular}
+              alt={json.description}
+              key={json.id}
+            />
+          </a>
         );
 
         setImage(data);
