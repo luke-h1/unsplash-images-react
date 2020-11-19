@@ -29,9 +29,8 @@ const Random = () => {
         );
 
         setImage(data);
-        setImage(data);
+        setLoading(false);
       });
-    setLoading(false);
   };
 
   useEffect(() => {
@@ -44,6 +43,7 @@ const Random = () => {
     <>
       <RandomWrapper>
         <ImageWrapper>{image}</ImageWrapper>
+        {loading ? <Loading /> : null}
         {image.length !== null && (
           <RandomBtn onClick={searchImages}>Get Random Image</RandomBtn>
         )}
