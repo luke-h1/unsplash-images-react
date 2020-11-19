@@ -22,7 +22,7 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/about" exact component={About} />
           <Route path="/random" exact component={Random} />
-          <Route default component={NotFound} /> 
+          <Route default component={NotFound} />
         </Switch>
       </>
     </BrowserRouter>
