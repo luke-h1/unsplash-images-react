@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { NavLink as Link } from 'react-router-dom';
-import { FiCoffee } from 'react-icons/fi';
+import { FaBars } from 'react-icons/fa';
 export const Nav = styled.nav`
   background: #333;
   height: 80px;
@@ -36,7 +36,7 @@ export const NavIcon = styled.div`
   }
 `;
 
-export const Bars = styled(FiCoffee)`
+export const Bars = styled(FaBars)`
   font-size: 2rem;
-  transform: translate(-50%, -15%);
+  margin: 1rem 1rem 0 0;
 `;
