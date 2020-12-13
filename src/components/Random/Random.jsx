@@ -33,7 +33,6 @@ const Random = () => {
             />
           </a>
         );
-
         setImage(data);
         setLoading(false);
       });
